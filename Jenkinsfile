@@ -2,13 +2,18 @@ def gv
 
 pipeline {
     agent any
+    
+    options {
+	    timestamps() // Add timestamps to logging
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+    }
   
     stages {
         
         stage('Init') {
             steps {
                 script {
-                    gv = load "functions.groovy"
+                    // gv = load "functions.groovy"
                     def props = readProperties(file: 'server.properties')
                 }
                 
