@@ -8,6 +8,8 @@ pipeline {
         stage('Init') {
             steps {
                 gv = load "functions.groovy"
+                
+                echo """ppp ${props['server']}"""
             }
         }
         stage('Test') {
