@@ -4,7 +4,7 @@ pipeline {
     agent any
     
     options {
-	    timestamps() // Add timestamps to logging
+        timestamps() // Add timestamps to logging
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
   
@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // gv = load "functions.groovy"
-                    def props = readProperties(file: 'server.properties')
+                    props = readProperties(file: 'server.properties')
                 }
                 
                 // echo """ppp ${props['server']}"""
