@@ -17,7 +17,7 @@ pipeline {
                     props = readProperties(file: 'server.properties')
                 }
                 
-                echo "props ${props['server']}"
+                echo "props ${props['project']}"
             }
         }
         stage('Test') {
