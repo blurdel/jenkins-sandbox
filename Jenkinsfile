@@ -17,13 +17,13 @@ pipeline {
                     props = readProperties(file: 'server.properties')
                 }
                 
-                echo """ppp ${props['server']}"""
+                echo "props ${props['server']}"
             }
         }
         stage('Test') {
             steps {
                 script {
-                    echo "asdf ${props.server}"
+                    echo "props ${props.server}"
                 }
             }
         }
