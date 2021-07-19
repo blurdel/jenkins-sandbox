@@ -11,7 +11,7 @@ pipeline {
             }
         }
         stage('Test') {
-            echo gv.getProp("server")
+            echo gv.getProperty("server")
         }
     
     }  
