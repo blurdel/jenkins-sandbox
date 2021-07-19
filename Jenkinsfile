@@ -7,13 +7,19 @@ pipeline {
         
         stage('Init') {
             steps {
-                gv = load "functions.groovy"
+                script {
+                    gv = load "functions.groovy"
+                }
                 
                 echo """ppp ${props['server']}"""
             }
         }
         stage('Test') {
-            echo gv.getProperty("server")
+            steps {
+                script {
+                    echo gv.getProperty("server")
+                }
+            }
         }
     
     }  
