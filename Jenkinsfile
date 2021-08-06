@@ -33,10 +33,14 @@ pipeline {
         }
         stage('Grep') {
             steps {
+                
+                def versio = sh returnStdout: true, script: 'grep GoPath samples.txt | awk -F\'[:]\' \'{print \\$1}\''
+                /*
                 sh """
                 name="$(grep """${params.testcase}""" samples.txt)"
                 echo "name ${name}"
                 """
+                */
                 script {
                     echo "props ${props.server}"
                 }
