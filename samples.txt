@@ -1,0 +1,12 @@
+Sample file formats
+
+# tomahawk-tpid.txt
+b3afea9f-9d6f-4341-912f-ea48f77f9917
+
+# tomahawk-tcid.txt
+85c13852-e613-48ae-8a7a-b907863d5601:Basic GoPath_TC
+69b563da-0346-462d-8280-15605317f935:Block IV Non-GPS_TC
+c54735f3-4a45-4fed-8d5f-9a9b7bc62acc:Auto GPS-SDL_TC
+d1ca08a5-d69f-4216-bde0-ec3b2347a041:Allocation Required_TC
+642bd843-6fb6-4699-945c-11a19eba39fe:Specific Tasks_TC
+47959eaf-5274-47b7-a74b-f32d1fb46ce1:Allocation Mode_TC
