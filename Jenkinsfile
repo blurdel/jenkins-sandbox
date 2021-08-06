@@ -33,10 +33,11 @@ pipeline {
         }
         stage('Grep') {
             steps {
+                sh """
+                name="$(grep ${params.testcase} samples.txt)"
+                echo "name ${name}"
+                """
                 script {
-                    def proc = 'cat samples.txt'.execute()
-                    println proc.text
-                    
                     echo "props ${props.server}"
                 }
             }
