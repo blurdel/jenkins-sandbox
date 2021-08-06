@@ -27,6 +27,16 @@ pipeline {
                 }
             }
         }
+        stage('Grep') {
+            steps {
+                sh '''
+                grep "GoPath" samples.txt
+                '''
+                script {
+                    echo "props ${props.server}"
+                }
+            }
+        }
     
     }  
   
