@@ -34,7 +34,8 @@ pipeline {
         stage('Grep') {
             steps {
                 script {
-                    def versio = sh returnStdout: true, script: 'grep GoPath samples.txt | awk -F\':\' \'{print \$1}\''
+                    def name = sh returnStdout: true, script: 'grep GoPath samples.txt | awk -F\':\' \'{print \$1}\''
+                    echo "name ${name}"
                 }
                 /*
                 sh """
