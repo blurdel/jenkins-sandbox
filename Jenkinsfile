@@ -34,7 +34,7 @@ pipeline {
         stage('Grep') {
             steps {
                 script {
-                    def name = sh returnStdout: true, script: "grep "${params.testcase}" samples.txt | awk -F\':\' \'{print \$1}\'"
+                    def name = sh returnStdout: true, script: 'grep \"${params.testcase}\" samples.txt | awk -F\':\' \'{print \$1}\''
                     echo "name ${name}"
                 }
                 /*
