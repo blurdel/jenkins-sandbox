@@ -29,9 +29,11 @@ pipeline {
         }
         stage('Grep') {
             steps {
+                name=sh 'grep "GoPath" samples.txt | awk '{print $1}''
+                echo "name ${name}"
+                
                 script {
-                    def name = sh 'grep "GoPath" samples.txt | awk '{print $1}''
-                    echo "name ${name}"
+                    
                     echo "props ${props.server}"
                 }
             }
