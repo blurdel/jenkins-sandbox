@@ -7,6 +7,10 @@ pipeline {
         timestamps() // Add timestamps to logging
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
+    
+    parameters {
+         string(name: 'testcase', defaultValue: 'GoPath', description: 'Test Manager testcase_id')
+    }
   
     stages {
         
@@ -29,10 +33,9 @@ pipeline {
         }
         stage('Grep') {
             steps {
-                name=sh 'grep "GoPath" samples.txt | awk '{print $1}''
-                echo "name ${name}"
-                
                 script {
+                    def proc = 'cat samples.txt'.execute() | 'grep ${params.testcase}'.execute()
+                    println proc.text
                     
                     echo "props ${props.server}"
                 }
