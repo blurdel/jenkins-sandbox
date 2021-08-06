@@ -13,7 +13,7 @@ pipeline {
     }
   
     stages {
-        
+        /*
         stage('Init') {
             steps {
                 script {
@@ -31,20 +31,12 @@ pipeline {
                 }
             }
         }
+        */
         stage('Grep') {
             steps {
                 script {
-                    def name = sh returnStdout: true, script: 'grep \"${params.testcase}\" samples.txt | awk -F\':\' \'{print \$1}\''
+                    def name = sh returnStdout: true, script: 'grep '${params.testcase}' samples.txt | awk -F\':\' \'{print \$1}\''
                     echo "name ${name}"
-                }
-                /*
-                sh """
-                name="$(grep """${params.testcase}""" samples.txt)"
-                echo "name ${name}"
-                """
-                */
-                script {
-                    echo "props ${props.server}"
                 }
             }
         }
