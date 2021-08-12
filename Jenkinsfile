@@ -45,7 +45,7 @@ pipeline {
                 script {
                     echo "idtag: ${idtag}"
                     
-                    def tcid = sh returnStdout: true, script: "grep ${params.testcase} samples.txt | awk -F":" \'{print \$1}\'"
+                    def tcid = sh returnStdout: true, script: "grep ${params.testcase} samples.txt | awk -F\":\" \'{print \$1}\'"
                     echo "tcid: ${tcid}"
                 }
             }
