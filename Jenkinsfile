@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+def idtag
 def gv
 
 pipeline {
@@ -13,28 +15,36 @@ pipeline {
     }
   
     stages {
-        /*
+        
         stage('Init') {
             steps {
                 script {
                     // gv = load "functions.groovy"
-                    props = readProperties(file: 'server.properties')
+                    //props = readProperties(file: 'server.properties')
+                    
+                    date = new Date()
+                    def sdf = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss")
+                    idtag = sdf.format(date)                    
+                    echo "idtag: ${idtag}"
                 }
                 
-                echo "props ${props['project']}"
+                //echo "props ${props['project']}"
             }
         }
         stage('Test') {
             steps {
                 script {
-                    echo "props ${props.server}"
+                    //echo "props ${props.server}"
+                    echo "idtag: ${idtag}"
                 }
             }
         }
-        */
+        
         stage('Grep') {
             steps {
                 script {
+                    echo "idtag: ${idtag}"
+                    
                     def name = sh returnStdout: true, script: "grep ${params.testcase} samples.txt | awk -F\':\' \'{print \$1}\'"
                     echo "name ${name}"
                 }
