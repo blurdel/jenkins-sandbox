@@ -23,7 +23,7 @@ pipeline {
                     //props = readProperties(file: 'server.properties')
                     
                     date = new Date()
-                    def sdf = new SimpleDateFormat("yyyy-MM-dd_H:mm:ss")
+                    def sdf = new SimpleDateFormat("yyyyMMdd_HHmmss")
                     idtag = sdf.format(date)                    
                     echo "idtag: ${idtag}"
                 }
@@ -46,7 +46,7 @@ pipeline {
                     echo "idtag: ${idtag}"
                     
                     def tcid = sh returnStdout: true, script: "grep ${params.testcase} samples.txt | awk -F\':\' \'{print \$1}\'"
-                    echo "tcid ${tcid}"
+                    echo "tcid: ${tcid}"
                 }
             }
         }
