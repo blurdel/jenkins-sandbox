@@ -23,7 +23,7 @@ pipeline {
                     //props = readProperties(file: 'server.properties')
                     
                     date = new Date()
-                    def sdf = new SimpleDateFormat("yyyyMMdd_HHmmss")
+                    sdf = new SimpleDateFormat("yyyyMMdd_HHmmss")
                     idtag = sdf.format(date)                    
                     echo "idtag: ${idtag}"
                 }
